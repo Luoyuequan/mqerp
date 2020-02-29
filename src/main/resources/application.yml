@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: mqerp
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: dev
+    password: dev123456.
+    url: jdbc:mysql://localhost:3306/mqerp?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+  redis:
+    host: 127.0.0.1
+    database: 0
+#    client-name:
+#    password:
+server:
+  port: 80
+mybatis-plus:
+  #  config-location: classpath:config/mybatis-config.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
+    lazy-loading-enabled: true
+    lazy-load-trigger-methods: equals,clone,hashCode,toString
+  type-aliases-package: cn.luoyuequan.mqerp.entity
+  mapper-locations: classpath:/mapper/**/*.xml

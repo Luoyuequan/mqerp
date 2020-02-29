@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.luoyuequan.mqerp.mapper.FreightInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.luoyuequan.mqerp.entity.FreightInfo">
+        <id column="freight_id" property="freightId" />
+        <result column="freight_number" property="freightNumber" />
+        <result column="product_info" property="productInfo" />
+        <result column="client_id" property="clientId" />
+        <result column="order_number" property="orderNumber" />
+        <result column="logistics_center_id" property="logisticsCenterId" />
+        <result column="shipping_address" property="shippingAddress" />
+        <result column="shipping_date" property="shippingDate" />
+        <result column="is_deleted" property="deleted" />
+        <result column="is_cancel" property="cancel" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        freight_id, freight_number, product_info, client_id, order_number, logistics_center_id, shipping_address, shipping_date, is_deleted, is_cancel, create_time, update_time, version
+    </sql>
+
+</mapper>

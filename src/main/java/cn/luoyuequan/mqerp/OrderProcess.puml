@@ -1,0 +1,19 @@
+@startuml
+header 订购流程
+
+actor 客户 as user
+actor 销售人员 as sale
+database 数据库 as database
+collections 产品 as product
+collections 订单 as orders
+collections 货运单 as freight
+autonumber
+user -> sale:询问,订购产品
+sale -> database:查看产品
+database <-> product:产品信息
+sale <-> user : 根据存货判断是否下单\n无存货不下单
+sale -> database:有存货开订单\n无存货可预订下单
+orders <-> database:保存订单
+sale -> user: 订单副本
+orders -> freight:货运单生成
+@enduml

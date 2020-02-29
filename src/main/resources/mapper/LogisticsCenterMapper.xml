@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.luoyuequan.mqerp.mapper.LogisticsCenterMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.luoyuequan.mqerp.entity.LogisticsCenter">
+        <id column="logistics_center_id" property="logisticsCenterId" />
+        <result column="logistics_center_name" property="logisticsCenterName" />
+        <result column="logistics_center_address" property="logisticsCenterAddress" />
+        <result column="route_range" property="routeRange" />
+        <result column="is_deleted" property="deleted" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        logistics_center_id, logistics_center_name, logistics_center_address, route_range, is_deleted, create_time, update_time
+    </sql>
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.luoyuequan.mqerp.mapper.OrderInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.luoyuequan.mqerp.entity.OrderInfo">
+        <id column="order_id" property="orderId" />
+        <result column="order_number" property="orderNumber" />
+        <result column="order_date" property="orderDate" />
+        <result column="shipping_address" property="shippingAddress" />
+        <result column="client_id" property="clientId" />
+        <result column="prepayment_amount" property="prepaymentAmount" />
+        <result column="amounts_payable" property="amountsPayable" />
+        <result column="unpaid_amount" property="unpaidAmount" />
+        <result column="order_product_info" property="orderProductInfo" />
+        <result column="order_type" property="orderType" />
+        <result column="salesperson_id" property="salespersonId" />
+        <result column="is_cancel" property="cancel" />
+        <result column="is_deleted" property="deleted" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_id, order_number, order_date, shipping_address, client_id, prepayment_amount, amounts_payable, unpaid_amount, order_product_info, order_type, salesperson_id, is_cancel, is_deleted, create_time, update_time, version
+    </sql>
+
+</mapper>
