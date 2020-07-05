@@ -1,8 +1,19 @@
 # MQERP系统
-> 预期后端技术支持:SpringBoot2+Mybatis-Plus+Druid+Redis+Quartz+RabbitMQ+WebSocket  
+> 预期后端技术支持:SpringBoot2+Mybatis-Plus+Druid+Redis+Quartz+消息队列RabbitMQ+WebSocket+工作流Activiti+MongoDB  
 > 预期前端技术支持:Vue2
 > 开发环境:IDEA+Tomcat+MySQL8  
 > 测试:Swagger2
+ - [ ] 业务流程管理
+ - [ ] 成本管理
+ - [ ] 产品数据管理
+ - [ ] 生产管理
+ - [ ] 供应商关系管理
+ - [ ] 供应链管理
+ - [ ] 客户关系管理
+ - [ ] 人力资源管理
+ - [ ] 财务管理
+ - [ ] 销售管理
+ - [ ] 仓储管理
 ## 1.生产系统
 ### 1.1.采购和订购
  - [ ] 采购计划【采购材料（生产加工之前，所需的材料和零件），采购量，采购预期成本（单位：分），采购实际成本（单位：分），采购人员（名字，电话），采购日期，采购点（线上、线下），出行工具（步行，摩托车，汽车）】

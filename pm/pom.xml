@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>srm</artifactId>
+    <artifactId>pm</artifactId>
     <packaging>jar</packaging>
-    <name>srm</name>
-    <description>供应商关系管理</description>
+    <name>pm</name>
+    <description>生产管理</description>
 
 </project>

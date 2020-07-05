@@ -5,6 +5,15 @@
     <modules>
         <module>srm</module>
         <module>crm</module>
+        <module>scm</module>
+        <module>fm</module>
+        <module>hrm</module>
+        <module>cm</module>
+        <module>pdm</module>
+        <module>bpm</module>
+        <module>sm</module>
+        <module>pm</module>
+        <module>wm</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,7 +26,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>mqerp</name>
-    <description>Enterprise ERP Management</description>
+    <description>MQ制造企业ERP系统</description>
 
     <properties>
         <java.version>14</java.version>
