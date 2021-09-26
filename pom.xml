@@ -14,13 +14,15 @@
         <module>sm</module>
         <module>pm</module>
         <module>wm</module>
+        <module>common</module>
+        <module>web-pom</module>
     </modules>
-    <parent>
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+        <relativePath/> &lt;!&ndash; 从存储库查找父级 &ndash;&gt;
+    </parent>-->
     <groupId>cn.luoyuequan</groupId>
     <artifactId>mqerp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -29,86 +31,153 @@
     <description>MQ制造企业ERP系统</description>
 
     <properties>
-        <java.version>14</java.version>
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
-        <freemarker.version>2.3.30</freemarker.version>
-        <knife4j.version>2.0.4</knife4j.version>
-        <druid.version>1.1.23</druid.version>
+        <!--环境配置-->
+        <java.version>11</java.version>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+
+        <mybatis-plus-boot.version>3.3.2</mybatis-plus-boot.version>
+        <mybatis-spring-boot.version>2.1.3</mybatis-spring-boot.version>
+        <knife4j-spring-boot.version>2.0.4</knife4j-spring-boot.version>
+        <openapi-ui.version>1.4.3</openapi-ui.version>
+        <druid-spring-boot.version>1.2.6</druid-spring-boot.version>
+        <activiti-spring-boot.version>7.1.0.M6</activiti-spring-boot.version>
+        <spring-aspects.version>5.2.8.RELEASE</spring-aspects.version>
+        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+        <hutool-all.version>5.3.9</hutool-all.version>
+        <pagehelper.version>5.2.1</pagehelper.version>
+        <pagehelper-spring-boot.version>1.3.1</pagehelper-spring-boot.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--mysql driver-->
+            <!-- dependencies version management -->
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--aop-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring-aspects.version}</version>
+            </dependency>
+            <!--mysql driver-->
+            <!--<dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <scope>runtime</scope>
-            </dependency>
+            </dependency>-->
             <!--连接池-->
             <dependency>
                 <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
+                <version>${druid-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
             </dependency>
             <!--mybatis plus-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <version>${mybatis-plus-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <version>${mybatis-plus-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot.version}</version>
             </dependency>
             <!-- template engine of mybatis plus generator -->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
-                <version>${freemarker.version}</version>
-            </dependency>
+            </dependency>-->
             <!--消息队列-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
-            </dependency>
+            </dependency>-->
             <!--Redis-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
             </dependency>
-            <!--邮件发送-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+            </dependency>
+            &lt;!&ndash;邮件发送&ndash;&gt;
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-mail</artifactId>
             </dependency>
-            <!--定时任务-->
+            &lt;!&ndash;定时任务&ndash;&gt;
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-quartz</artifactId>
             </dependency>
-            <!--web框架-->
+            &lt;!&ndash;web框架&ndash;&gt;
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
             </dependency>
-            <!--websocket-->
+            &lt;!&ndash;websocket&ndash;&gt;
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-websocket</artifactId>
+            </dependency>-->
+            <!-- activiti 工作流 -->
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-spring-boot-starter</artifactId>
+                <version>${activiti-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${openapi-ui.version}</version>
             </dependency>
             <!-- swagger + 个性化ui -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
+                <version>${knife4j-spring-boot.version}</version>
             </dependency>
             <!--热部署-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
-                <scope>runtime</scope>
                 <optional>true</optional>
+                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -130,18 +199,76 @@
                 <groupId>org.springframework.amqp</groupId>
                 <artifactId>spring-rabbit-test</artifactId>
                 <scope>test</scope>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <configuration>
+                        <finalName>${project.name}</finalName>
+                        <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                        <warName>${project.name}</warName>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

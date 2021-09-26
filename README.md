@@ -1,9 +1,9 @@
 # MQERP系统
-> 预期后端技术支持:SpringBoot+(Mybatis/JPA/Mybatis-Plus)+Druid+Redis+Quartz+消息队列RabbitMQ+WebSocket+工作流Activiti+DataExchange  
+> 预期后端技术支持:SpringBoot2+(Mybatis/JPA/Mybatis-Plus)+Druid+Redis+Quartz+消息队列RabbitMQ+WebSocket+工作流Activiti+DataExchange  
 > 日志:ELK/SLF4J+(Log4j2/Logback)+MongoDB   
 > 预期前端技术支持:Vue2/Layui
-> 开发环境:IDEA+Tomcat+(MySQL8/Oracle)  
-> 测试:Swagger2+Postman
+> 开发环境:IDEA+Nginx+(Tomcat/WebLogic)+(MySQL8/Oracle)  
+> 测试:Swagger3+Postman
  - [ ] 业务流程管理
  - [ ] 成本管理
  - [ ] 产品数据管理
